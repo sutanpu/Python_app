@@ -17,8 +17,7 @@ def generate_pdf(df, title, graph_path):
     pdf.add_page()
 
     # ✅ 日本語フォントを追加
-    font_path = os.path.join(os.path.dirname(__file__), "NotoSansJP-Regular.ttf")
-    pdf.add_font("Noto", "", font_path, uni=True)
+    pdf.add_font("Noto", "", "NotoSansJP-Regular.ttf", uni=True)
     pdf.set_font("Noto", "", 14)
     pdf.cell(0, 10, "為替レートレポート", ln=True)
 
@@ -100,7 +99,7 @@ if "rates" in data:
         mime="text/csv"
     )
     # グラフ保存 → PDF生成
-    jp_font_path = os.path.join(os.path.dirname(__file__), "NotoSansJP-Regular.ttf")
+    jp_font_path = "NotoSansJP-Regular.ttf"
     jp_font = fm.FontProperties(fname=jp_font_path)
     plt.rcParams["font.family"] = jp_font.get_name()
 
@@ -123,7 +122,25 @@ if "rates" in data:
         file_name=f"{base}_{target}_report_{start_date}_to_{end_date}.pdf",
         mime="application/pdf"
     )
+    st.subheader("📰 関連ニュース")
 
+    news_api_key = st.secrets["NEWS_API_KEY"]
+    query = f"{base} {target} forex"
+    news_url = f"https://newsdata.io/api/1/news?apikey={news_api_key}&q={query}&language=ja"
+
+
+    try:
+        news_res = requests.get(news_url).json()
+        if "results" in news_res:
+            for article in news_res["results"][:5]:  # 最新5件
+                st.markdown(f"### [{article['title']}]({article['link']})")
+                st.caption(article.get("pubDate", ""))
+                st.write(article.get("description", ""))
+                st.markdown("---")
+        else:
+            st.info("ニュースが見つかりませんでした。")
+    except Exception as e:
+        st.error(f"ニュース取得中にエラーが発生しました: {e}")
 
 else:
     st.error("為替データの取得に失敗しました。APIエラーか、日付範囲が正しくない可能性があります。")
