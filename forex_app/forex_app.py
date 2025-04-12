@@ -121,7 +121,7 @@ if "rates" in data:
         label="📄 PDFレポートをダウンロード",
         data=pdf_bytes,
         file_name=f"{base}_{target}_report_{start_date}_to_{end_date}.pdf",
-        mime="application/pdf"s
+        mime="application/pdf"
     )
     st.subheader("📰 関連ニュース")
 
