@@ -13,7 +13,7 @@
 
 ## 📸 スクリーンショット
 
-![screenshot](./screenshot.png)
+![screenshot]forex_app/スクリーンショット_sample.png
 
 ## 🚀 公開URL
 👉 [Streamlit Cloudで試す]https://pythonapp-fbodfu7dffgx52zzjyhs9m.streamlit.app/
