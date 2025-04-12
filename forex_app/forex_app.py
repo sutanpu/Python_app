@@ -17,7 +17,8 @@ def generate_pdf(df, title, graph_path):
     pdf.add_page()
 
     # ✅ 日本語フォントを追加
-    pdf.add_font("Noto", "", "NotoSansJP-Regular.ttf", uni=True)
+    font_path = os.path.join(os.path.dirname(__file__), "NotoSansJP-Regular.ttf")
+    pdf.add_font("Noto", "", font_path, uni=True)
     pdf.set_font("Noto", "", 14)
     pdf.cell(0, 10, "為替レートレポート", ln=True)
 
