@@ -99,7 +99,7 @@ if "rates" in data:
         mime="text/csv"
     )
     # グラフ保存 → PDF生成
-    jp_font_path = "NotoSansJP-Regular.ttf"
+    jp_font_path = os.path.join(os.path.dirname(__file__), "NotoSansJP-Regular.ttf")
     jp_font = fm.FontProperties(fname=jp_font_path)
     plt.rcParams["font.family"] = jp_font.get_name()
 
