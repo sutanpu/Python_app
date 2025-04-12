@@ -124,6 +124,7 @@ if "rates" in data:
         mime="application/pdf"
     )
     st.subheader("📰 関連ニュース")
+    st.write("🔑 Secrets: ", st.secrets)  # ← 一時的なデバッグ用
 
     news_api_key = st.secrets["NEWS_API_KEY"]
     query = f"{base} {target} forex"
