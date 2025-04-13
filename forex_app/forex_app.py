@@ -124,7 +124,6 @@ if "rates" in data:
         mime="application/pdf"
     )
     st.subheader("📰 関連ニュース")
-    st.write("🔑 Secrets: ", st.secrets)  # ← 一時的なデバッグ用
 
     news_api_key = st.secrets["NEWS_API_KEY"]
     query = f"{base} {target} forex"
@@ -135,8 +134,6 @@ if "rates" in data:
     try:
         news_res = requests.get(news_url).json()
 
-        # 👇 レスポンス全体を出力（デバッグ用）
-        st.write("🪵 APIレスポンス：", news_res)
 
         articles = news_res.get("results", [])
 
