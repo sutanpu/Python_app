@@ -23,3 +23,8 @@
 - Python / Streamlit / matplotlib / pandas
 - FPDF（PDF生成）
 - Frankfurter API（為替データ）
+
+## 📰 経済ニュース連携
+
+選択した通貨ペア（例：USD→JPY）に関連する最新の英語ニュースを5件まで表示。  
+NewsData.io APIを使用し、リアルタイムに情報を取得しています。
