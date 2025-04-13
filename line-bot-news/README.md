@@ -1,36 +1,45 @@
+# 📰 LINE Bot News Summarizer (with AI-style Summary)
 
-最新ニュースをLINEボットに送ると、ChatGPT風に自動で日本語要約してくれるPythonアプリです。
+This is a Python app that lets you send messages to a LINE Bot and get an "AI-style" summary of the latest news in return.
 
-※現在はAPI課金なしで動作確認をするため、ChatGPTの応答はダミー対応にしています。
-
----
-
-## 🧠 主な機能
-
-- ✅ LINEボットに送った文章をAIっぽく要約（ダミー）
-- ✅ FlaskでWebhookサーバーを構築
-- ✅ LINE Messaging APIでBot通知
-- ✅ ngrokでローカルサーバーを外部公開
-- ✅ `.env`でセキュアにAPIキー管理
+> ⚠️ Currently, the ChatGPT API response is mocked (dummy) to enable local development **without API charges**.
 
 ---
 
-## 🧰 使用技術
+## 🧠 Features
 
-| 項目 | 内容 |
-|------|------|
-| 言語 | Python |
-| ライブラリ | Flask, line-bot-sdk, dotenv |
-| 外部連携 | LINE Messaging API |
-| 開発補助 | ngrok, VSCode |
+- ✅ AI-style summary of messages sent via LINE (dummy response)
+- ✅ Flask-based Webhook server
+- ✅ LINE Messaging API integration
+- ✅ Exposed local server via ngrok
+- ✅ API key management with `.env` for secure development
 
 ---
 
-## 📦 フォルダ構成
+## 📸 Demo Screenshot
+
+> Message: `Tell me some interesting news`
+
+![demo](./screenshot.png)
+
+---
+
+## 🧰 Tech Stack
+
+| Item         | Description                        |
+|--------------|------------------------------------|
+| Language     | Python                             |
+| Libraries    | Flask, line-bot-sdk, python-dotenv |
+| External API | LINE Messaging API                 |
+| Tools        | ngrok, VSCode                      |
+
+---
+
+## 📁 Project Structure
 
 ```bash
 line-bot-news/
-├── app.py                 # Flask本体（LINE + OpenAI応答）
-├── .env                  # 環境変数（APIキーなど）
-├── requirements.txt       # ライブラリ定義
-└── README.md              # ← このファイル
+├── app.py               # Flask app (handles LINE + OpenAI logic)
+├── .env                # Environment variables (e.g., API keys)
+├── requirements.txt     # Python dependencies
+└── README_EN.md         # This file
