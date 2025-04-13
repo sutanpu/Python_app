@@ -133,8 +133,10 @@ if "rates" in data:
 
     try:
         news_res = requests.get(news_url).json()
-        if "results" in news_res:
-            for article in news_res["results"][:5]:  # 最新5件
+        articles = news_res.get("results", [])
+
+        if articles:
+            for article in articles[:5]:  # 最新5件
                 st.markdown(f"### [{article['title']}]({article['link']})")
                 st.caption(article.get("pubDate", ""))
                 st.write(article.get("description", ""))
@@ -143,6 +145,7 @@ if "rates" in data:
             st.info("ニュースが見つかりませんでした。")
     except Exception as e:
         st.error(f"ニュース取得中にエラーが発生しました: {e}")
+
 
 else:
     st.error("為替データの取得に失敗しました。APIエラーか、日付範囲が正しくない可能性があります。")
