@@ -20,7 +20,8 @@ This is a Python app that lets you send messages to a LINE Bot and get an "AI-st
 
 > Message: `Tell me some interesting news`
 
-![demo](./screenshot.png)
+![LINEapp](https://github.com/user-attachments/assets/9c38cee7-cb84-4529-8bc2-b87a3191476c)
+
 
 ---
 
@@ -42,4 +43,5 @@ line-bot-news/
 ├── app.py               # Flask app (handles LINE + OpenAI logic)
 ├── .env                # Environment variables (e.g., API keys)
 ├── requirements.txt     # Python dependencies
-└── README_EN.md         # This file
+└── README_EN.md         # This file![LINEapp](https://github.com/user-attachments/assets/78781558-4a65-47a0-b75c-5231b8857d6e)
+
