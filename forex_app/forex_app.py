@@ -128,7 +128,8 @@ if "rates" in data:
 
     news_api_key = st.secrets["NEWS_API_KEY"]
     query = f"{base} {target} forex"
-    news_url = f"https://newsdata.io/api/1/news?apikey={news_api_key}&q={query}&language=ja"
+    news_url = f"https://newsdata.io/api/1/news?apikey={news_api_key}&q={query}"
+
 
 
     try:
