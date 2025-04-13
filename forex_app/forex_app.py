@@ -133,10 +133,14 @@ if "rates" in data:
 
     try:
         news_res = requests.get(news_url).json()
+
+        # 👇 レスポンス全体を出力（デバッグ用）
+        st.write("🪵 APIレスポンス：", news_res)
+
         articles = news_res.get("results", [])
 
-        if articles:
-            for article in articles[:5]:  # 最新5件
+        if isinstance(articles, list) and articles:
+            for article in articles[:5]:
                 st.markdown(f"### [{article['title']}]({article['link']})")
                 st.caption(article.get("pubDate", ""))
                 st.write(article.get("description", ""))
